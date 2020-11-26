@@ -14,7 +14,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.codexo.tictactoe.R
 import com.codexo.tictactoe.databinding.FragmentSinglePlayerBinding
+import java.lang.NullPointerException
 import java.util.*
+
 
 class SinglePlayerFragment : Fragment() {
     private lateinit var binding: FragmentSinglePlayerBinding
@@ -40,24 +42,22 @@ class SinglePlayerFragment : Fragment() {
 
     private fun listener() {
         viewModel.initGame()
-        binding.tv1.setOnClickListener { playGame(0, binding.tv1) }
-        binding.tv2.setOnClickListener { playGame(1, binding.tv2) }
-        binding.tv3.setOnClickListener { playGame(2, binding.tv3) }
-        binding.tv4.setOnClickListener { playGame(3, binding.tv4) }
-        binding.tv5.setOnClickListener { playGame(4, binding.tv5) }
-        binding.tv6.setOnClickListener { playGame(5, binding.tv6) }
-        binding.tv7.setOnClickListener { playGame(6, binding.tv7) }
-        binding.tv8.setOnClickListener { playGame(7, binding.tv8) }
-        binding.tv9.setOnClickListener { playGame(8, binding.tv9) }
-        binding.resetBtn.setOnClickListener { resetCells()
+        initCells(viewModel.xoTable)
+
+        val childCount: Int = binding.gridLayout.getChildCount()
+
+        for (i in 0 until childCount) {
+            binding.gridLayout.getChildAt(i).setOnClickListener {
+                playGame(i, binding.gridLayout.getChildAt(i) as ImageView)
+            }
+        }
+        binding.resetBtn.setOnClickListener {
+            resetCells()
         }
     }
 
     private fun playGame(cellID: Int, selectedIv: ImageView) {
 
-        for (element in viewModel.xoTable) {
-            println("here is the 2d array: ${element}")
-        }
         try {
             if (viewModel.turn == 'x') {
                 paint(selectedIv, xIcon, false)
@@ -72,17 +72,8 @@ class SinglePlayerFragment : Fragment() {
                 viewModel.xoTable[cellID] = viewModel.turn
                 viewModel.turn = 'x'
             }
-            for (element in viewModel.xoTable) {
-                println("here is the 2d array: ${element}")
-            }
-            doChecks()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        for (element in viewModel.xoTable) {
-            print(">>>>>>>>>>>" + element)
-        }
-
+        } catch (e: NullPointerException) { e.printStackTrace().toString() }
+        doChecks()
     }
 
     private fun paint(iv: ImageView, id: Int, enabled: Boolean) {
@@ -90,75 +81,54 @@ class SinglePlayerFragment : Fragment() {
         iv.isEnabled = enabled
     }
 
-    private fun resetCells() {
-        binding.resetBtn.visibility = View.INVISIBLE
-        binding.tv1.setImageDrawable(null)
-        binding.tv2.setImageDrawable(null)
-        binding.tv3.setImageDrawable(null)
-        binding.tv4.setImageDrawable(null)
-        binding.tv5.setImageDrawable(null)
-        binding.tv6.setImageDrawable(null)
-        binding.tv7.setImageDrawable(null)
-        binding.tv8.setImageDrawable(null)
-        binding.tv9.setImageDrawable(null)
+    private fun initCells(xoTable: Array<Char>){
 
-        binding.tv1.visibility = View.VISIBLE
-        binding.tv2.visibility = View.VISIBLE
-        binding.tv3.visibility = View.VISIBLE
-        binding.tv4.visibility = View.VISIBLE
-        binding.tv5.visibility = View.VISIBLE
-        binding.tv6.visibility = View.VISIBLE
-        binding.tv7.visibility = View.VISIBLE
-        binding.tv8.visibility = View.VISIBLE
-        binding.tv9.visibility = View.VISIBLE
+        for (cellID in 0..8) {
+            if (xoTable[cellID]=='-') {
+                binding.gridLayout.getChildAt(cellID).setBackgroundResource(R.drawable.cells_border)
+                paint(binding.gridLayout.getChildAt(cellID) as ImageView, 0, true)
+                binding.gridLayout.getChildAt(cellID).isEnabled = true
+            }
+        }
+    }
+
+    private fun resetCells() {
+        viewModel.clearGame()
+        binding.resetBtn.visibility = View.INVISIBLE
+        listener()
     }
 
     private fun AutoPlay() {
+        doChecks()
         if (viewModel.xoTable.contains('-')) {
-            viewModel.getMoves()
+            viewModel.setLeftMoves()
             val r = Random()
             Log.i("size", viewModel.emptyCells.size.toString())
-            val randIndex = r.nextInt(viewModel.emptyCells.size + 1)
+            val randIndex = r.nextInt(viewModel.emptyCells.size)
+            Log.i("arraySize: ", viewModel.emptyCells.size.toString()+ " "+ randIndex)
             val cellID = viewModel.emptyCells[randIndex]
 
-            val selectedIv: ImageView
-            when (cellID) {
-                0 -> selectedIv = binding.tv1
-                1 -> selectedIv = binding.tv2
-                2 -> selectedIv = binding.tv3
-                3 -> selectedIv = binding.tv4
-                4 -> selectedIv = binding.tv5
-                5 -> selectedIv = binding.tv6
-                6 -> selectedIv = binding.tv7
-                7 -> selectedIv = binding.tv8
-                8 -> selectedIv = binding.tv9
-                else -> selectedIv = binding.tv1
-            }
-
-            playGame(cellID, selectedIv)
-            viewModel.emptyCells.clear()
-        }
+            playGame(cellID, binding.gridLayout.getChildAt(cellID) as ImageView)
+        } else return
     }
 
     fun doChecks() {
         val flag = viewModel.checkWinner()
 
-        if (flag != '-'){
+        if (flag != '-') {
             when (flag) {
                 'o' -> {
                     Toast.makeText(requireContext(), "O Wins! ", Toast.LENGTH_SHORT).show()
-                    viewModel.clearGame()
-                    binding.resetBtn.visibility = View.VISIBLE
+                    gameOver()
                 }
                 'x' -> {
                     Toast.makeText(requireContext(), "x Wins! ", Toast.LENGTH_SHORT).show()
-                    viewModel.clearGame()
-                    binding.resetBtn.visibility = View.VISIBLE
+                    gameOver()
                 }
                 '-' -> {
+                    Log.i("draw: ", viewModel.xoTable.contains('-').toString())
                     Toast.makeText(requireContext(), "Draw! ", Toast.LENGTH_SHORT).show()
-                    viewModel.clearGame()
-                    binding.resetBtn.visibility = View.VISIBLE
+                    gameOver()
                 }
                 else -> {
                 }
@@ -166,5 +136,12 @@ class SinglePlayerFragment : Fragment() {
         }
 
 
+    }
+
+    private fun gameOver() {
+        binding.resetBtn.visibility = View.VISIBLE
+        viewModel.emptyCells.clear()
+        viewModel.turn = '-'
+        return
     }
 }

@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="ivClicks"
             type="com.codexo.tictactoe.screens.single.SinglePlayerFragment" />
@@ -14,7 +16,7 @@
         tools:context=".screens.single.SinglePlayerFragment">
 
 
-        <TableLayout
+        <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="106dp"
@@ -23,122 +25,104 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal">
 
-        </TableLayout>
+        </LinearLayout>
 
-        <TableLayout
-            android:id="@+id/table_layout"
-            android:layout_width="0dp"
+        <GridLayout
+            android:id="@+id/grid_layout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:columnCount="3"
             android:gravity="center"
-            android:orientation="vertical"
+            android:rowCount="3"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/tv_1"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
 
-                <ImageView
-                    android:id="@+id/tv_1"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:background="@drawable/cells_border"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_01"
-                    android:padding="@dimen/cells_padding"/>
+            <ImageView
+                android:id="@+id/tv_2"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
 
-                <ImageView
-                    android:id="@+id/tv_2"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_02"
-                    android:padding="@dimen/cells_padding"/>
+            <ImageView
+                android:id="@+id/tv_3"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
+            <ImageView
+                android:id="@+id/tv_4"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
 
-                <ImageView
-                    android:id="@+id/tv_3"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_03"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:padding="@dimen/cells_padding"/>
-            </TableRow>
+            <ImageView
+                android:id="@+id/tv_5"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
+            <ImageView
+                android:id="@+id/tv_6"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
 
-                <ImageView
-                    android:id="@+id/tv_4"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_04"
-                    android:padding="@dimen/cells_padding"/>
+            <ImageView
+                android:id="@+id/tv_7"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
+            <ImageView
+                android:id="@+id/tv_8"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
 
-                <ImageView
-                    android:id="@+id/tv_5"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_05"
-                    android:padding="@dimen/cells_padding"/>
+            <ImageView
+                android:id="@+id/tv_9"
+                android:layout_width="@dimen/cell_size"
+                android:layout_height="@dimen/cell_size"
+                android:layout_margin="@dimen/margin_cells"
+                android:background="@drawable/cells_border"
+                android:contentDescription="@string/_01"
+                android:padding="@dimen/cells_padding" />
 
-                <ImageView
-                    android:id="@+id/tv_6"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_06"
-                    android:padding="@dimen/cells_padding"/>
-            </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/tv_7"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_07"
-                    android:padding="@dimen/cells_padding"/>
-
-                <ImageView
-                    android:id="@+id/tv_8"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_08"
-                    android:padding="@dimen/cells_padding"/>
-
-                <ImageView
-                    android:id="@+id/tv_9"
-                    android:background="@drawable/cells_border"
-                    android:layout_width="@dimen/cell_size"
-                    android:layout_height="@dimen/cell_size"
-                    android:layout_margin="@dimen/margin_cells"
-                    android:contentDescription="@string/_09"
-                    android:padding="@dimen/cells_padding"/>
-            </TableRow>
-        </TableLayout>
+        </GridLayout>
 
         <Button
             android:id="@+id/reset_btn"
@@ -149,7 +133,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/table_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/grid_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
