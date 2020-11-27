@@ -28,6 +28,7 @@ class SinglePlayerViewModel : ViewModel() {
     fun checkWinner(): Char? {
         val symbol = arrayOf('x', 'o')
         val draw = '-'
+
         for (j in symbol.indices) {
 
             // Check for row
@@ -43,8 +44,10 @@ class SinglePlayerViewModel : ViewModel() {
             // Check for diagonal
             if (xoTable[0] == symbol[j] && xoTable[4] == symbol[j] && xoTable[8] == symbol[j]) return symbol[j]
             if (xoTable[2] == symbol[j] && xoTable[4] == symbol[j] && xoTable[6] == symbol[j]) return symbol[j]
+
         }
-        return if (!xoTable.contains(draw)) draw else null
+        if (!xoTable.any{ it == '-'}) return '-'
+        return null
     }
 
     fun setLeftMoves(){

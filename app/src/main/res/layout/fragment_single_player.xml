@@ -13,41 +13,147 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="8dp"
         tools:context=".screens.single.SinglePlayerFragment">
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="106dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+        <TextView
+            android:id="@+id/x_wins_tv"
+            style="@style/text_style_1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="0"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/o_avatar_iv"
+            app:layout_constraintStart_toEndOf="@+id/x_avatar_iv"
+            app:layout_constraintTop_toBottomOf="@+id/o_name_tv" />
+
+        <TextView
+            android:id="@+id/x_name_tv"
+            style="@style/text_style_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Mr. X"
+            app:layout_constraintBottom_toTopOf="@+id/o_wins_tv"
+            app:layout_constraintStart_toEndOf="@+id/x_avatar_iv"
+            app:layout_constraintTop_toTopOf="@+id/o_avatar_iv" />
+
+        <ImageView
+            android:id="@+id/x_avatar_iv"
+            android:layout_width="60dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="x avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:orientation="horizontal">
+            tools:srcCompat="@tools:sample/avatars" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/reset_btn"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:text="@string/play_again"
+            android:visibility="invisible"
+            app:cornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grid_layout" />
+
+        <ImageView
+            android:id="@+id/o_avatar_iv"
+            android:layout_width="60dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="o avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/o_name_tv"
+            style="@style/text_style_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Mr. O"
+            app:layout_constraintBottom_toTopOf="@+id/o_wins_tv"
+            app:layout_constraintEnd_toStartOf="@+id/o_avatar_iv"
+            app:layout_constraintTop_toTopOf="@+id/o_avatar_iv" />
+
+        <TextView
+            android:id="@+id/o_wins_tv"
+            style="@style/text_style_1"
+            android:layout_width="@dimen/total_wins"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="0"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/o_avatar_iv"
+            app:layout_constraintEnd_toStartOf="@+id/o_avatar_iv"
+            app:layout_constraintTop_toBottomOf="@+id/o_name_tv" />
+
+        <TextView
+            android:id="@+id/games_played_title_tv"
+            style="@style/text_style_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Games Played"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/o_name_tv"
+            app:layout_constraintStart_toEndOf="@+id/x_name_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/games_played_tv"
+            style="@style/text_style_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="@+id/games_played_title_tv"
+            app:layout_constraintStart_toStartOf="@+id/games_played_title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/games_played_title_tv" />
+
+        <TextView
+            android:id="@+id/score_tv"
+            style="@style/text_style_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="You Won!"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/games_played_tv" />
 
         <GridLayout
             android:id="@+id/grid_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_gray_border"
             android:columnCount="3"
             android:gravity="center"
+            android:padding="10dp"
             android:rowCount="3"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/score_tv">
 
             <ImageView
                 android:id="@+id/tv_1"
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
@@ -56,7 +162,7 @@
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
@@ -65,15 +171,16 @@
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
+
             <ImageView
                 android:id="@+id/tv_4"
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
@@ -82,7 +189,7 @@
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
@@ -91,7 +198,7 @@
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
@@ -100,15 +207,16 @@
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
+
             <ImageView
                 android:id="@+id/tv_8"
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
@@ -117,23 +225,12 @@
                 android:layout_width="@dimen/cell_size"
                 android:layout_height="@dimen/cell_size"
                 android:layout_margin="@dimen/margin_cells"
-                android:background="@drawable/cells_border"
+                android:background="@drawable/custom_cells_bg"
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
 
         </GridLayout>
-
-        <Button
-            android:id="@+id/reset_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/play_again"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grid_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -67,7 +67,7 @@ class SinglePlayerFragment : Fragment() {
                     AutoPlay()
                 }, 400)
 
-            } else {
+            } else if (viewModel.turn == 'o'){
                 paint(selectedIv, oIcon, false)
                 viewModel.xoTable[cellID] = viewModel.turn
                 viewModel.turn = 'x'
@@ -84,8 +84,16 @@ class SinglePlayerFragment : Fragment() {
     private fun initCells(xoTable: Array<Char>){
 
         for (cellID in 0..8) {
-            if (xoTable[cellID]=='-') {
-                binding.gridLayout.getChildAt(cellID).setBackgroundResource(R.drawable.cells_border)
+            if (xoTable[cellID]=='o') {
+                binding.gridLayout.getChildAt(cellID).setBackgroundResource(R.drawable.custom_cells_bg)
+                paint(binding.gridLayout.getChildAt(cellID) as ImageView, oIcon, true)
+                binding.gridLayout.getChildAt(cellID).isEnabled = true
+            }else if(xoTable[cellID]=='x'){
+                binding.gridLayout.getChildAt(cellID).setBackgroundResource(R.drawable.custom_cells_bg)
+                paint(binding.gridLayout.getChildAt(cellID) as ImageView, xIcon, true)
+                binding.gridLayout.getChildAt(cellID).isEnabled = true
+            }else{
+                binding.gridLayout.getChildAt(cellID).setBackgroundResource(R.drawable.custom_cells_bg)
                 paint(binding.gridLayout.getChildAt(cellID) as ImageView, 0, true)
                 binding.gridLayout.getChildAt(cellID).isEnabled = true
             }
@@ -126,8 +134,8 @@ class SinglePlayerFragment : Fragment() {
                     gameOver()
                 }
                 '-' -> {
-                    Log.i("draw: ", viewModel.xoTable.contains('-').toString())
                     Toast.makeText(requireContext(), "Draw! ", Toast.LENGTH_SHORT).show()
+                    Log.i("draw: ", viewModel.xoTable.contains('-').toString())
                     gameOver()
                 }
                 else -> {
