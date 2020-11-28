@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -7,14 +8,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="8dp"
         tools:context=".screens.home.HomeFragment">
 
 
         <TextView
             android:id="@+id/total_game_tv"
+            style="@style/text_style_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:text="Games Played: 34"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,10 +25,11 @@
 
         <TextView
             android:id="@+id/title_tv"
+            style="@style/text_style_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="TicTacToe"
+            android:text="@string/tictactoe"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +40,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/cd"
             app:layout_constraintEnd_toEndOf="@+id/title_tv"
             app:layout_constraintStart_toStartOf="@+id/title_tv"
             app:layout_constraintTop_toBottomOf="@+id/title_tv"
@@ -43,24 +48,72 @@
 
         <Button
             android:id="@+id/single_player_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_marginStart="64dp"
             android:layout_marginTop="64dp"
             android:layout_marginEnd="64dp"
             android:text="@string/player_vs_ai"
+            app:cornerRadius="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/game_iv" />
 
         <Button
             android:id="@+id/multi_player_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
             android:text="@string/multiplayer"
+            app:cornerRadius="100dp"
             app:layout_constraintEnd_toEndOf="@+id/single_player_btn"
             app:layout_constraintStart_toStartOf="@+id/single_player_btn"
             app:layout_constraintTop_toBottomOf="@+id/single_player_btn" />
+
+        <ImageButton
+            android:id="@+id/rate_btn"
+            android:contentDescription="@string/cd"
+            android:layout_width="@dimen/size60"
+            android:layout_height="@dimen/size60"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/share_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/iv_google_play" />
+
+
+
+        <ImageButton
+            android:id="@+id/share_btn"
+            android:layout_width="@dimen/size60"
+            android:layout_height="@dimen/size60"
+            android:contentDescription="@string/cd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sound_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/rate_btn"
+            app:srcCompat="@drawable/ic_share" />
+
+        <ImageButton
+            android:id="@+id/sound_btn"
+            android:layout_width="@dimen/size60"
+            android:layout_height="@dimen/size60"
+            android:contentDescription="@string/cd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/info_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/share_btn"
+            app:srcCompat="@drawable/custom_sound_toggle" />
+
+        <ImageButton
+            android:id="@+id/info_btn"
+            android:layout_width="@dimen/size60"
+            android:layout_height="@dimen/size60"
+            android:contentDescription="@string/cd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sound_btn"
+            app:srcCompat="@drawable/ic_info" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

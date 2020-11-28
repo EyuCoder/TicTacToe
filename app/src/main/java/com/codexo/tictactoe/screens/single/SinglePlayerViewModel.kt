@@ -5,8 +5,11 @@ import androidx.lifecycle.ViewModel
 
 class SinglePlayerViewModel : ViewModel() {
     var emptyCells = ArrayList<Int>()
-    var turn = '-'
     var xoTable = arrayOf<Char>()
+    var turn = '-'
+    var freeSpots = 0
+    var xScore = 0
+    var oScore = 0
 
     init {
         Log.i("SinglePlayerViewModel", "SinglePlayerViewModel created!")
@@ -16,6 +19,7 @@ class SinglePlayerViewModel : ViewModel() {
         emptyCells.clear()
         xoTable = emptyArray()
         turn = '-'
+        freeSpots = 0
     }
 
     fun initGame() {
@@ -23,12 +27,12 @@ class SinglePlayerViewModel : ViewModel() {
             xoTable += '-'
         }
         turn = 'x'
+        freeSpots = 9
     }
 
     fun checkWinner(): Char? {
         val symbol = arrayOf('x', 'o')
-        val draw = '-'
-
+        val draw ='-'
         for (j in symbol.indices) {
 
             // Check for row
@@ -44,9 +48,11 @@ class SinglePlayerViewModel : ViewModel() {
             // Check for diagonal
             if (xoTable[0] == symbol[j] && xoTable[4] == symbol[j] && xoTable[8] == symbol[j]) return symbol[j]
             if (xoTable[2] == symbol[j] && xoTable[4] == symbol[j] && xoTable[6] == symbol[j]) return symbol[j]
-
         }
-        if (!xoTable.any{ it == '-'}) return '-'
+
+        Log.i("CheckWinner", "$freeSpots Empty space available!")
+        if (freeSpots==0) return draw
+
         return null
     }
 

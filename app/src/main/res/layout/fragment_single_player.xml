@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="ivClicks"
+            name="singlePlayer"
             type="com.codexo.tictactoe.screens.single.SinglePlayerFragment" />
     </data>
 
@@ -15,7 +14,6 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         tools:context=".screens.single.SinglePlayerFragment">
-
 
         <TextView
             android:id="@+id/x_wins_tv"
@@ -49,19 +47,7 @@
             android:contentDescription="x avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <Button
-            android:id="@+id/reset_btn"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:text="@string/play_again"
-            android:visibility="invisible"
-            app:cornerRadius="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grid_layout" />
+            tools:srcCompat="@drawable/x" />
 
         <ImageView
             android:id="@+id/o_avatar_iv"
@@ -72,7 +58,7 @@
             android:contentDescription="o avatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/o" />
 
         <TextView
             android:id="@+id/o_name_tv"
@@ -128,7 +114,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="You Won!"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -229,8 +214,19 @@
                 android:contentDescription="@string/_01"
                 android:padding="@dimen/cells_padding" />
 
-
         </GridLayout>
+
+        <Button
+            android:id="@+id/reset_btn"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:text="@string/play_again"
+            android:visibility="invisible"
+            app:cornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grid_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

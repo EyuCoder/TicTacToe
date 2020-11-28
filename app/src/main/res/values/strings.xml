@@ -15,4 +15,6 @@
     <string name="_07">07</string>
     <string name="_08">08</string>
     <string name="_09">09</string>
+    <string name="cd">content description</string>
+    <string name="tictactoe">TicTacToe</string>
 </resources>
