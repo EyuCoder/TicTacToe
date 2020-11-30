@@ -13,30 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
+        android:background="@android:color/transparent"
         tools:context=".screens.single.SinglePlayerFragment">
 
         <TextView
             android:id="@+id/x_wins_tv"
             style="@style/text_style_1"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="0"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="@+id/o_avatar_iv"
-            app:layout_constraintStart_toEndOf="@+id/x_avatar_iv"
-            app:layout_constraintTop_toBottomOf="@+id/o_name_tv" />
-
-        <TextView
-            android:id="@+id/x_name_tv"
-            style="@style/text_style_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Mr. X"
-            app:layout_constraintBottom_toTopOf="@+id/o_wins_tv"
+            android:layout_marginStart="16dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/x_avatar_iv"
             app:layout_constraintStart_toEndOf="@+id/x_avatar_iv"
-            app:layout_constraintTop_toTopOf="@+id/o_avatar_iv" />
+            app:layout_constraintTop_toTopOf="@+id/x_avatar_iv" />
 
         <ImageView
             android:id="@+id/x_avatar_iv"
@@ -47,7 +38,7 @@
             android:contentDescription="x avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/x" />
+            android:background="@drawable/x"/>
 
         <ImageView
             android:id="@+id/o_avatar_iv"
@@ -55,45 +46,36 @@
             android:layout_height="68dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:background="@drawable/o"
             android:contentDescription="o avatar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/o" />
-
-        <TextView
-            android:id="@+id/o_name_tv"
-            style="@style/text_style_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="Mr. O"
-            app:layout_constraintBottom_toTopOf="@+id/o_wins_tv"
-            app:layout_constraintEnd_toStartOf="@+id/o_avatar_iv"
-            app:layout_constraintTop_toTopOf="@+id/o_avatar_iv" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/o_wins_tv"
             style="@style/text_style_1"
-            android:layout_width="@dimen/total_wins"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
             android:text="0"
             android:textAlignment="center"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/o_avatar_iv"
             app:layout_constraintEnd_toStartOf="@+id/o_avatar_iv"
-            app:layout_constraintTop_toBottomOf="@+id/o_name_tv" />
+            app:layout_constraintTop_toTopOf="@+id/o_avatar_iv" />
 
         <TextView
             android:id="@+id/games_played_title_tv"
             style="@style/text_style_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_bold"
             android:text="Games Played"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/o_name_tv"
-            app:layout_constraintStart_toEndOf="@+id/x_name_tv"
+            app:layout_constraintEnd_toStartOf="@+id/o_avatar_iv"
+            app:layout_constraintStart_toEndOf="@+id/x_avatar_iv"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -103,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="0"
+            android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="@+id/games_played_title_tv"
             app:layout_constraintStart_toStartOf="@+id/games_played_title_tv"
             app:layout_constraintTop_toBottomOf="@+id/games_played_title_tv" />
@@ -112,8 +95,8 @@
             style="@style/text_style_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/roboto_bold"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_thin"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

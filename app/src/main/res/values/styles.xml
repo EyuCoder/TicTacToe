@@ -2,7 +2,6 @@
 <resources>
 
     <style name="text_style_1">
-        <item name="android:fontFamily">@font/roboto_bold</item>
-        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:fontFamily">@font/roboto_thin</item>
     </style>
 </resources>

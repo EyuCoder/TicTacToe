@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_cells">5dp</dimen>
-    <dimen name="cell_size">100dp</dimen>
+    <dimen name="cell_size">90dp</dimen>
     <dimen name="cells_padding">10dp</dimen>
     <dimen name="total_wins">50dp</dimen>
     <dimen name="size60">60dp</dimen>

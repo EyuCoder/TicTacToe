@@ -10,17 +10,15 @@
 
     <color name="red">#F44336</color>
     <color name="yellow">#FFEB3B</color>
-    <color name="green">#4CAF50</color>
     <color name="light_gray">#bcbbbe</color>
     <color name="dark_gray">#909090</color>
 
+    <color name="green">#1B5E20</color>
+    <color name="green_dark">#003300</color>
+    <color name="green_light">#A5D6A7</color>
+    <color name="blue">#0288D1</color>
+    <color name="blue_dark">#005B9F</color>
+    <color name="blue_light">#81D4FA</color>
 
-    <color name="primaryColor">#212121</color>
-    <color name="primaryLightColor">#484848</color>
-    <color name="primaryDarkColor">#000000</color>
-    <color name="secondaryColor">#fafafa</color>
-    <color name="secondaryLightColor">#ffffff</color>
-    <color name="secondaryDarkColor">#c7c7c7</color>
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#000000</color>
+
 </resources>

@@ -203,8 +203,9 @@ class SinglePlayerFragment : Fragment() {
     }
 
     private fun setGamesPlayed(){
+        var count = getGamesPlayed()
         GlobalScope.launch {
-            userData.setGamesPlayed(getGamesPlayed()+1)
+            userData.setGamesPlayed(++count)
         }
 
     }
@@ -214,7 +215,6 @@ class SinglePlayerFragment : Fragment() {
         viewModel.emptyCells.clear()
         viewModel.turn = '-'
         setGamesPlayed()
-        getGamesPlayed()
         return
     }
 
