@@ -1,4 +1,4 @@
-package com.codexo.tictactoe.screens.multi
+package com.codexo.tictactoe.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

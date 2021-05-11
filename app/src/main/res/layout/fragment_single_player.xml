@@ -6,7 +6,7 @@
     <data>
         <variable
             name="singlePlayer"
-            type="com.codexo.tictactoe.screens.single.SinglePlayerFragment" />
+            type="com.codexo.tictactoe.screens.SinglePlayerFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         android:background="@android:color/transparent"
-        tools:context=".screens.single.SinglePlayerFragment">
+        tools:context=".screens.SinglePlayerFragment">
 
         <TextView
             android:id="@+id/x_wins_tv"
@@ -38,7 +38,7 @@
             android:contentDescription="x avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/x"/>
+            android:background="@drawable/x_android"/>
 
         <ImageView
             android:id="@+id/o_avatar_iv"
@@ -46,7 +46,7 @@
             android:layout_height="68dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/o"
+            android:background="@drawable/o_apple"
             android:contentDescription="o avatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

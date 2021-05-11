@@ -1,4 +1,4 @@
-package com.codexo.tictactoe
+package com.codexo.tictactoe.data
 
 interface DataStoreInterface {
 

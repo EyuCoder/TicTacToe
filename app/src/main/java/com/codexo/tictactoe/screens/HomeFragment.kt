@@ -1,19 +1,16 @@
-package com.codexo.tictactoe.screens.home
+package com.codexo.tictactoe.screens
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
-import com.codexo.tictactoe.DataHandler
-import com.codexo.tictactoe.DataStoreInterface
+import com.codexo.tictactoe.data.DataHandler
 import com.codexo.tictactoe.R
 import com.codexo.tictactoe.databinding.FragmentHomeBinding
 import kotlinx.coroutines.GlobalScope
@@ -22,7 +19,7 @@ import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(){
     private lateinit var _binding: FragmentHomeBinding
-    private lateinit var viewModel: HomeViewModel
+    //private lateinit var viewModel: HomeViewModel
     private lateinit var userData: DataHandler
 
     companion object {
@@ -40,7 +37,7 @@ class HomeFragment : Fragment(){
     ): View? {
         _binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         userData = DataHandler(requireContext())
 
         listener()

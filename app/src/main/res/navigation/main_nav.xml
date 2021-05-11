@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.codexo.tictactoe.screens.home.HomeFragment"
+        android:name="com.codexo.tictactoe.screens.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/singlePlayerFragment"
-        android:name="com.codexo.tictactoe.screens.single.SinglePlayerFragment"
+        android:name="com.codexo.tictactoe.screens.SinglePlayerFragment"
         android:label="fragment_single_player"
         tools:layout="@layout/fragment_single_player" />
     <fragment
         android:id="@+id/multiPlayerFragment"
-        android:name="com.codexo.tictactoe.screens.multi.MultiPlayerFragment"
+        android:name="com.codexo.tictactoe.screens.MultiPlayerFragment"
         android:label="fragment_multi_player"
         tools:layout="@layout/fragment_multi_player" />
 </navigation>

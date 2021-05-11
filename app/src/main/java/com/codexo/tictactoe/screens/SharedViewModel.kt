@@ -1,9 +1,9 @@
-package com.codexo.tictactoe.screens.single
+package com.codexo.tictactoe.screens
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 
-class SinglePlayerViewModel : ViewModel() {
+class SharedViewModel : ViewModel() {
     var emptyCells = ArrayList<Int>()
     var xoTable = arrayOf<Char>()
     var turn = '-'
@@ -12,7 +12,7 @@ class SinglePlayerViewModel : ViewModel() {
     var oScore = 0
 
     init {
-        Log.i("SinglePlayerViewModel", "SinglePlayerViewModel created!")
+        //Log.i("SinglePlayerViewModel", "ViewModel created!")
     }
 
     fun clearGame() {
@@ -52,7 +52,6 @@ class SinglePlayerViewModel : ViewModel() {
 
         Log.i("CheckWinner", "$freeSpots Empty space available!")
         if (freeSpots==0) return draw
-
         return null
     }
 

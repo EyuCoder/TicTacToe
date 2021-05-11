@@ -1,4 +1,4 @@
-package com.codexo.tictactoe.screens.single
+package com.codexo.tictactoe.screens
 
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
-import com.codexo.tictactoe.DataHandler
+import com.codexo.tictactoe.data.DataHandler
 import com.codexo.tictactoe.R
 import com.codexo.tictactoe.databinding.FragmentSinglePlayerBinding
 import kotlinx.coroutines.GlobalScope
@@ -25,10 +25,10 @@ import java.util.*
 
 class SinglePlayerFragment : Fragment() {
     private lateinit var binding: FragmentSinglePlayerBinding
-    private lateinit var viewModel: SinglePlayerViewModel
+    private lateinit var viewModel: SharedViewModel
     private lateinit var userData: DataHandler
-    private val xIcon = R.drawable.x
-    private val oIcon = R.drawable.o
+    private val xIcon = R.drawable.x_android
+    private val oIcon = R.drawable.o_apple
     lateinit var xMedia: MediaPlayer
     lateinit var oMedia: MediaPlayer
 
@@ -41,7 +41,7 @@ class SinglePlayerFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_single_player, container, false)
 
         Log.i("SinglePlayerFragment", "Called ViewModelProvider.get")
-        viewModel = ViewModelProvider(this).get(SinglePlayerViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
         xMedia = MediaPlayer.create(requireContext(), R.raw.x)
         oMedia = MediaPlayer.create(requireContext(), R.raw.o)
 
