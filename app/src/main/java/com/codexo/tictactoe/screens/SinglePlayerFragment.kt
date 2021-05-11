@@ -22,7 +22,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-
 class SinglePlayerFragment : Fragment() {
     private lateinit var binding: FragmentSinglePlayerBinding
     private lateinit var viewModel: SharedViewModel

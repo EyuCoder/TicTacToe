@@ -3,5 +3,6 @@
 
     <style name="text_style_1">
         <item name="android:fontFamily">@font/roboto_thin</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>
