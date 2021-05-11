@@ -140,7 +140,7 @@ class MultiPlayerFragment : Fragment() {
         when (flag) {
             'o' -> {
                 Toast.makeText(requireContext(), "O Wins! ", Toast.LENGTH_SHORT).show()
-                binding.scoreTv.text = "You Lost!"
+                binding.scoreTv.text = "Apple Wins!"
                 viewModel.oScore = viewModel.oScore + 1
                 binding.oWinsTv.text = viewModel.oScore.toString()
                 gameOver()
@@ -149,13 +149,14 @@ class MultiPlayerFragment : Fragment() {
                 viewModel.turn = '-'
                 Log.v("Hello: ", "sup")
                 Toast.makeText(requireContext(), "x Wins! ", Toast.LENGTH_SHORT).show()
-                binding.scoreTv.text = "You Won!"
+                binding.scoreTv.text = "Android Wins!"
                 viewModel.xScore = viewModel.xScore + 1
                 binding.xWinsTv.text = viewModel.xScore.toString()
                 gameOver()
             }
             '-' -> {
                 Toast.makeText(requireContext(), "Draw! ", Toast.LENGTH_SHORT).show()
+                binding.scoreTv.text = "Draw!"
                 Log.i("draw: ", viewModel.xoTable.contains('-').toString())
                 gameOver()
             }

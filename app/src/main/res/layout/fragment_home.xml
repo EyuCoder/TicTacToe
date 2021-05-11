@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
-        android:background="@color/green_light"
+        android:background="@color/black"
         tools:context=".screens.HomeFragment">
 
 
