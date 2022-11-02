@@ -1,3 +1,3 @@
 # TicTacToe
 
-<img src="tic.png"/>
+<img src="tic.PNG"/>
